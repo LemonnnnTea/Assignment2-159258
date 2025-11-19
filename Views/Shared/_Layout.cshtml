@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta name="description" content="企业内部档案管理系统 - 安全存储与检索" />
+    <meta name="author" content="你的名字" />
+
+    <title>@ViewData["Title"] - 档案管理系统</title>
+
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container nav-container">
+                <div class="logo">📂 档案系统</div>
+                <ul class="nav-links">
+                    <li><a asp-controller="Home" asp-action="Index">主页</a></li>
+                    <li><a asp-controller="Archive" asp-action="Index">档案列表</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container main-content">
+        <main role="main">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-section">
+                <p>遇到问题? 联系管理员: <a href="mailto:admin@archivesystem.local">admin@archivesystem.local</a></p>
+            </div>
+
+            <div class="footer-section">
+                <p>系统状态检测:</p>
+                <a href="https://validator.w3.org/check?uri=referer" target="_blank">Validate HTML5</a> |
+                <a href="https://jigsaw.w3.org/css-validator/check/referer" target="_blank">Validate CSS3</a>
+            </div>
+
+            <p class="copyright">&copy; 2025 档案管理系统 - 版权所有</p>
+        </div>
+    </footer>
+
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

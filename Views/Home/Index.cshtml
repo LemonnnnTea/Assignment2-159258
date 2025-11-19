@@ -1,0 +1,27 @@
+﻿@{
+    ViewData["Title"] = "主页";
+}
+
+<div class="home-hero">
+    <h1>欢迎访问档案管理中心</h1>
+    <p class="lead">这里是企业核心资料的存储库。您可以浏览、搜索和查阅所有公开与机密文件。</p>
+
+    <div class="action-buttons">
+        <a asp-controller="Archive" asp-action="Index" class="btn-primary">立即浏览档案</a>
+    </div>
+</div>
+
+<div class="features">
+    <div class="feature-box">
+        <h3>🔍 快速搜索</h3>
+        <p>支持通过标题或部门名称进行全文检索。</p>
+    </div>
+    <div class="feature-box">
+        <h3>🔒 安全分级</h3>
+        <p>文件分为公开与机密等级，确保信息安全。</p>
+    </div>
+    <div class="feature-box">
+        <h3>📅 按时归档</h3>
+        <p>所有文件按上传日期自动排序，方便查阅最新资料。</p>
+    </div>
+</div>

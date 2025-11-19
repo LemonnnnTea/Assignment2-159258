@@ -1,0 +1,55 @@
+﻿@model IEnumerable<MyArchiveProject.Models.ArchiveDocument>
+
+    @{
+    ViewData["Title"] = "档案列表";
+    }
+
+    <div class="page-header">
+        <h2>📁 档案清单</h2>
+        <p>查看并管理所有归档文件。</p>
+    </div>
+
+    <div class="search-container">
+        <form asp-controller="Archive" asp-action="Index" method="get" class="search-form">
+            <label for="searchString">关键词搜索:</label>
+            <input type="text" id="searchString" name="searchString" placeholder="输入标题或部门..." />
+            <input type="submit" value="🔍 搜索" class="btn-search" />
+            <a asp-action="Index" class="btn-reset">重置</a>
+        </form>
+    </div>
+
+    <div class="table-responsive">
+        <table class="custom-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>档案标题</th>
+                    <th>部门分类</th>
+                    <th>上传日期</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (!Model.Any())
+            {
+                <tr>
+                    <td colspan="5" style="text-align:center;">没有找到相关档案。</td>
+                </tr>
+            }
+
+                @foreach (var item in Model) {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Title</td>
+                    <td>
+                        <span class="badge">@item.Category</span>
+                    </td>
+                    <td>@item.UploadDate.ToShortDateString()</td>
+                    <td>
+                        <a asp-action="Details" asp-route-id="@item.Id" class="btn-link">查看详情</a>
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>

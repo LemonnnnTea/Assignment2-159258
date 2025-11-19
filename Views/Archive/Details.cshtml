@@ -1,0 +1,36 @@
+﻿@model MyArchiveProject.Models.ArchiveDocument
+
+@{
+    ViewData["Title"] = "档案详情";
+}
+
+<div class="details-container">
+    <div class="details-header">
+        <h2>📄 @Model.Title</h2>
+        <span class="badge-large">@Model.SecurityLevel</span>
+    </div>
+
+    <div class="details-body">
+        <dl class="details-list">
+            <dt>档案编号</dt>
+            <dd>#@Model.Id</dd>
+
+            <dt>所属部门</dt>
+            <dd>@Model.Category</dd>
+
+            <dt>上传人</dt>
+            <dd>@Model.Author</dd>
+
+            <dt>上传日期</dt>
+            <dd>@Model.UploadDate.ToString("yyyy年MM月dd日")</dd>
+
+            <dt>内容摘要</dt>
+            <dd class="description">@Model.Description</dd>
+        </dl>
+    </div>
+
+    <div class="details-footer">
+        <a asp-action="Index" class="btn-back">← 返回列表</a>
+        <button class="btn-download" onclick="alert('演示：开始下载文件...')">⬇ 下载文件</button>
+    </div>
+</div>
